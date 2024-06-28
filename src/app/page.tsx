@@ -1,6 +1,7 @@
 import CardArticle from "@/components/CardArticle";
 import styles from "./page.module.css";
 import { CardStyle } from "@/types/general";
+import QuotesCarousel from "@/components/QuotesCarousel";
 
 const fetchArticles = async () => {
   try {
@@ -24,12 +25,26 @@ const Home = async () => {
   const articles = await fetchArticles();
 
   return (
-    <ul className={styles.card_list}>
-      {articles.data.length &&
-        articles.data.map((article: CardStyle) => (
-          <CardArticle key={article.id} title={article.attributes.Title} author={article.attributes.Author} imageUrl={`http://localhost:1337` + article.attributes.Images.data[0].attributes.url} />
-        )).reverse()}
-    </ul>
+    <div className={styles.homepage_wrapper}>
+      <QuotesCarousel />
+      <ul className={styles.card_list}>
+        {articles.data.length &&
+          articles.data
+            .map((article: CardStyle) => (
+              <CardArticle
+                key={article.id}
+                id={article.id}
+                title={article.attributes.Title}
+                author={article.attributes.Author}
+                imageUrl={
+                  `http://localhost:1337` +
+                  article.attributes.Images.data[0].attributes.url
+                }
+              />
+            ))
+            .reverse()}
+      </ul>
+    </div>
   );
 };
 

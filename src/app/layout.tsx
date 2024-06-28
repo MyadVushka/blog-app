@@ -3,6 +3,7 @@ import { Roboto } from "next/font/google";
 import "./globals.css";
 import Header from "@/layouts/Header";
 const roboto = Roboto({ subsets: ["latin"], weight: ["400", "700"] });
+import ScrollTopButton from "@/components/ScrollTopButton";
 
 export const metadata: Metadata = {
   title: "Viespacińnik",
@@ -20,6 +21,7 @@ export default function RootLayout({
         <Header />
         <div className="global-wrapper">
           {children}
+          <ScrollTopButton />
         </div>
       </body>
     </html>

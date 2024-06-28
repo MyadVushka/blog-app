@@ -5,3 +5,9 @@
   row-gap: 50px;
   padding-bottom: 40px;
 }
+
+.homepage_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}

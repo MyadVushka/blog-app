@@ -1,0 +1,92 @@
+"use client";
+
+import "./QuotesCarousel.css";
+import { useKeenSlider } from "keen-slider/react";
+import "keen-slider/keen-slider.min.css";
+import { useState } from "react";
+import Image from "next/image";
+
+const fetchQoutes = async () => {
+  try {
+    const res = await fetch("http://localhost:1337/api/quotes?populate=*", {
+      headers: {
+        "Content-type": "application/json",
+        Authorization: `Bearer ${process.env.API_KEY}`,
+      },
+    });
+
+    return await res.json();
+  } catch (error) {
+    throw error;
+  }
+};
+
+const images = [
+  "https://images.unsplash.com/photo-1590004953392-5aba2e72269a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&h=500&w=800&q=80",
+  "https://images.unsplash.com/photo-1590004845575-cc18b13d1d0a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&h=500&w=800&q=80",
+  "https://images.unsplash.com/photo-1590004987778-bece5c9adab6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&h=500&w=800&q=80",
+  "https://images.unsplash.com/photo-1590005176489-db2e714711fc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&h=500&w=800&q=80",
+];
+
+const QuotesCarousel = () => {
+  const [opacities, setOpacities] = useState<number[]>([]);
+
+  const [sliderRef] = useKeenSlider<HTMLDivElement>(
+    {
+      slides: images.length,
+      loop: true,
+      detailsChanged(s) {
+        const new_opacities = s.track.details.slides.map(
+          (slide) => slide.portion
+        );
+        setOpacities(new_opacities);
+      },
+    },
+    [
+      (slider) => {
+        let timeout: ReturnType<typeof setTimeout>;
+        let mouseOver = false;
+        function clearNextTimeout() {
+          clearTimeout(timeout);
+        }
+        function nextTimeout() {
+          clearTimeout(timeout);
+          if (mouseOver) return;
+          timeout = setTimeout(() => {
+            slider.next();
+          }, 5000);
+        }
+        slider.on("created", () => {
+          slider.container.addEventListener("mouseover", () => {
+            mouseOver = true;
+            clearNextTimeout();
+          });
+          slider.container.addEventListener("mouseout", () => {
+            mouseOver = false;
+            nextTimeout();
+          });
+          nextTimeout();
+        });
+        slider.on("dragStarted", clearNextTimeout);
+        slider.on("animationEnded", nextTimeout);
+        slider.on("updated", nextTimeout);
+      },
+    ]
+  );
+
+  return (
+    <div ref={sliderRef} className="fader">
+      {images.map((src, idx) => (
+        <div
+          key={idx}
+          className="fader__slide"
+          style={{ opacity: opacities[idx] }}
+        >
+          <img src={src} />
+        </div>
+      ))}
+    </div>
+  );
+};
+
+export default QuotesCarousel;

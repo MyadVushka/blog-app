@@ -8,8 +8,10 @@ import { useRouter } from "next/navigation";
 const CardArticle = (props: CardStyle) => {
   const router = useRouter();
 
+
+
   const handleClick = () => {
-    router.push(`/article/${props.id}`);
+    router.push(`/article/${props.title}`);
   }
 
   return (

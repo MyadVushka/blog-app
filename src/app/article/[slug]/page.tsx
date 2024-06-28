@@ -1,7 +1,8 @@
-const ArticlePage = () => {
+const ArticlePage = ({ params }: { params: { slug: string } }) => {
+
   return (
     <div className="">
-      <div className="">Test</div>
+      <div className="">{params.slug}</div>
     </div>
   );
 };
