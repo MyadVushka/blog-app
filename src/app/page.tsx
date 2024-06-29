@@ -1,7 +1,8 @@
 import CardArticle from "@/components/CardArticle";
 import styles from "./page.module.css";
 import { CardStyle } from "@/types/general";
-import QuotesCarousel from "@/components/QuotesCarousel";
+import QuotesWrapper from "@/components/QuotesCarousel/QuotesWrapper";
+
 
 const fetchArticles = async () => {
   try {
@@ -26,7 +27,7 @@ const Home = async () => {
 
   return (
     <div className={styles.homepage_wrapper}>
-      <QuotesCarousel />
+      <QuotesWrapper />
       <ul className={styles.card_list}>
         {articles.data.length &&
           articles.data

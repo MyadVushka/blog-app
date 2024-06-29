@@ -1,7 +1,8 @@
 .fader {
-  height: 300px;
+  height: 500px;
   position: relative;
   overflow: hidden;
+  border-radius: 5px;
 }
 
 .fader__slide {
@@ -17,4 +18,20 @@
   height: 100%;
   object-fit: cover;
   position: absolute;
+}
+
+.fader__info {
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  transform: translate(-20% -20%);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.fader__info p {
+  color: white;
+  font-size: 24px;
+  font-weight: 600;
 }
