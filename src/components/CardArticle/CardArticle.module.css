@@ -4,8 +4,10 @@
   width: 385px;
   border-radius: 6px;
   overflow: hidden;
-  box-shadow: 0 10px 15px -3px var(--box-shadow-primary-color), 0 4px 6px -4px var(--box-shadow-primary-color);
+  box-shadow: 0 10px 15px -3px var(--box-shadow-primary-color),
+    0 4px 6px -4px var(--box-shadow-primary-color);
   cursor: pointer;
+  background-color: var(--card-primary-background);
 }
 
 .image {

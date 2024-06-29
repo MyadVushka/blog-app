@@ -3,6 +3,7 @@ import { Roboto, Merriweather } from "next/font/google";
 import "./globals.css";
 import Header from "@/layouts/Header";
 import ScrollTopButton from "@/components/ScrollTopButton";
+import ThemeWrapper from "./ThemeWrapper";
 
 const roboto = Roboto({ subsets: ["latin"], weight: ["400", "700"] });
 const merriweather = Merriweather({
@@ -22,15 +23,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${roboto.className} ${merriweather.className}`}
-        data-theme="dark"
-      >
-        <Header />
-        <div className="global-wrapper">
+      <body className={`${roboto.className} ${merriweather.className}`}>
+        <ThemeWrapper>
+          <Header />
           {children}
           <ScrollTopButton />
-        </div>
+        </ThemeWrapper>
       </body>
     </html>
   );

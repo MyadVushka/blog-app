@@ -22,24 +22,31 @@ button {
   --text-primary-color: #000;
   --text-article-describe: grey;
   --background-primary-color: white;
-  --box-shadow-primary-color: rgba(0, 0, 0, 0.2);
+  --box-shadow-primary-color: rgba(0, 0, 0, 0.12);
   --button-scroll-up-background: rgb(181, 46, 46);
+  --card-primary-background: rgba(255, 255, 255, 0.72);
+  --toggle-background: rgba(255, 255, 0, 0.418);
+  --toggle-circle: rgb(187, 187, 89);
 }
 
 [data-theme="dark"] {
   --text-primary-color: #fff;
   --text-article-describe: rgb(197, 194, 194);
   --background-primary-color: #211e1e;
-  --box-shadow-primary-color: #52282843;
+  --box-shadow-primary-color: #423f5243;
   --button-scroll-up-background: #0b0b0b;
+  --card-primary-background: rgb(43, 43, 43);
+  --toggle-background: rgba(53, 53, 150, 0.685);
+  --toggle-circle: rgb(35, 35, 67);
 }
 
 .global-wrapper {
-  width: 80%;
-  margin: 0 auto;
-  margin-top: 80px;
+  background-color: var(--background-primary-color);
+
 }
 
-body {
-  background-color: var(--background-primary-color);
+.content-wrapper {
+  width: 80%;
+  margin: 0 auto;
 }
+

@@ -1,0 +1,23 @@
+.toggle_wrapper {
+  position: relative;
+  padding: 12px 2px;
+  width: 60px;
+  background-color: var(--toggle-background);
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.toggle_circle {
+  top: 50%;
+  transform: translateY(-50%);
+  position: absolute;
+  padding: 10px;
+  border-radius: 50%;
+  background-color: var(--toggle-circle);
+  right: 60%;
+  transition: right  0.3s;
+}
+
+.toggle_circle.active {
+  right: 5%;
+}

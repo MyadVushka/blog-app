@@ -5,6 +5,7 @@
   align-items: baseline;
   padding: 3px;
   position: relative;
+  margin-bottom: 80px;
 }
 
 .nav_wrapper {
@@ -30,5 +31,3 @@
   align-items: center;
   gap: 10px;
 }
-
-
