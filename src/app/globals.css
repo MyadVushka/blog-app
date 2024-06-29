@@ -4,7 +4,7 @@
   list-style: none;
   text-decoration: none;
   box-sizing: border-box;
-  color: black;
+  color: var(--text-primary-color);
 }
 
 button,
@@ -18,10 +18,28 @@ button {
   cursor: pointer;
 }
 
+:root {
+  --text-primary-color: #000;
+  --text-article-describe: grey;
+  --background-primary-color: white;
+  --box-shadow-primary-color: rgba(0, 0, 0, 0.2);
+  --button-scroll-up-background: rgb(181, 46, 46);
+}
+
+[data-theme="dark"] {
+  --text-primary-color: #fff;
+  --text-article-describe: rgb(197, 194, 194);
+  --background-primary-color: #211e1e;
+  --box-shadow-primary-color: #52282843;
+  --button-scroll-up-background: #0b0b0b;
+}
+
 .global-wrapper {
   width: 80%;
   margin: 0 auto;
   margin-top: 80px;
-  scroll-behavior: smooth;
 }
 
+body {
+  background-color: var(--background-primary-color);
+}

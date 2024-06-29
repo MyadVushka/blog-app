@@ -3,8 +3,8 @@
   display: flex;
   justify-content: center;
   align-items: baseline;
-
   padding: 3px;
+  position: relative;
 }
 
 .nav_wrapper {
@@ -19,7 +19,8 @@
   transition: all 0.3s;
 }
 
-.nav_element:hover, .nav_element_p:hover {
+.nav_element:hover,
+.nav_element_p:hover {
   color: rgb(181, 46, 46);
 }
 
@@ -29,3 +30,5 @@
   align-items: center;
   gap: 10px;
 }
+
+

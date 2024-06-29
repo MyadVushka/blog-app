@@ -2,6 +2,7 @@ import styles from "./Header.module.css";
 import logo from "../../../public/logo.svg";
 import Image from "next/image";
 import Link from "next/link";
+import SearchAndSwitcher from "@/components/SearchAndSwitcher";
 
 const Header = () => {
   return (
@@ -18,6 +19,7 @@ const Header = () => {
           Палічка
         </Link>
       </ul>
+      <SearchAndSwitcher />
     </header>
   );
 };

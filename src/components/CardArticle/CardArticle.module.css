@@ -4,7 +4,7 @@
   width: 385px;
   border-radius: 6px;
   overflow: hidden;
-  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  box-shadow: 0 10px 15px -3px var(--box-shadow-primary-color), 0 4px 6px -4px var(--box-shadow-primary-color);
   cursor: pointer;
 }
 
@@ -26,5 +26,5 @@
 }
 
 .author {
-  color: grey;
+  color: var(--text-article-describe);
 }

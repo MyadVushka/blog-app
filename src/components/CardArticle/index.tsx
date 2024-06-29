@@ -20,7 +20,7 @@ const CardArticle = (props: CardStyle) => {
         src={props.imageUrl}
         width={385}
         height={180}
-        alt="image"
+        alt="article-image"
       />
       <div className={styles.info}>
         <h2 className={styles.title}>{props.title}</h2>

@@ -1,6 +1,6 @@
 .button_wrapper {
   padding: 10px;
-  background-color: rgb(181, 46, 46);
+  background-color: var(--button-scroll-up-background);
   display: grid;
   place-items: center;
   border-radius: 50%;

@@ -1,0 +1,24 @@
+.additional_wrapper {
+  position: absolute;
+  right: 15%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.search_block {
+  position: absolute;
+  top: 130%;
+  right: 50%;
+  transform: translateX(50%);
+  font-size: 15px;
+  padding: 10px;
+  border: solid 1px black;
+  border-radius: 10px;
+  font-size: 17px;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.search_block.active {
+    opacity: 1
+}
