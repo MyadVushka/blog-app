@@ -4,7 +4,6 @@ import "./QuotesCarousel.css";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import { useState } from "react";
-import Image from "next/image";
 import { QuoteStyle } from "@/types/general";
 
 const QuotesCarousel = ({ quotes }: { quotes: QuoteStyle }) => {
@@ -77,12 +76,15 @@ const QuotesCarousel = ({ quotes }: { quotes: QuoteStyle }) => {
               src={`http://localhost:1337${quote.attributes.quoteImage.data.attributes.url}`}
               alt="img-quote"
             />
-            {textVisible ? (
-              <i className="fader__info">
-                <p className="">{quote.attributes.quoteContent}</p>
-                <p className="">{quote.attributes.quoteAuthor}</p>
-              </i>
-            ) : null}
+            <i className={`fader__info ${textVisible ? "visible" : ""}`}>
+              <p className="">«{quote.attributes.quoteContent}»</p>
+              <p className="qoute-author">{quote.attributes.quoteAuthor}</p>
+            </i>
+            <div
+              className={`quote-background-shadow ${
+                textVisible ? "active" : ""
+              }`}
+            ></div>
           </div>
         </div>
       ))}
