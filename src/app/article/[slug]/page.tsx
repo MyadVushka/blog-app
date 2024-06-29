@@ -1,8 +1,9 @@
 const ArticlePage = ({ params }: { params: { slug: string } }) => {
+  let transliteratedTitle: string = params.slug;
 
   return (
     <div className="">
-      <div className="">{params.slug}</div>
+      <div className="">{transliteratedTitle}</div>
     </div>
   );
 };

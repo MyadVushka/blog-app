@@ -3,22 +3,26 @@
 import styles from "./ScrollTopButton.module.css";
 import Image from "next/image";
 import arrow_top from "../../../public/arrow_top.svg";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const ScrollTopButton = () => {
   const [visible, setVisible] = useState<boolean>(false);
 
-  const toggleVisible = () => {
-    const scrolled = document.documentElement.scrollTop;
+  useEffect(() => {
+    const toggleVisible = () => {
+      const scrolled = document.documentElement.scrollTop;
 
-    if (scrolled > 200) {
-      setVisible(true);
-    } else {
-      setVisible(false);
-    }
-  };
-
-  window.addEventListener("scroll", toggleVisible);
+      if (scrolled > 200) {
+        setVisible(true);
+      } else {
+        setVisible(false);
+      }
+    };
+    window.addEventListener("scroll", toggleVisible);
+    return () => {
+      window.removeEventListener("scroll", toggleVisible);
+    };
+  }, []);
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -29,15 +33,9 @@ const ScrollTopButton = () => {
 
   return (
     visible && (
-      <div className={styles.button_wrapper}>
-        <Image
-          onClick={scrollToTop}
-          width={25}
-          height={25}
-          alt="scroll-up"
-          src={arrow_top}
-        />
-      </div>
+      <button onClick={scrollToTop} className={styles.button_wrapper}>
+        <Image width={25} height={25} alt="scroll-up" src={arrow_top} />
+      </button>
     )
   );
 };
