@@ -1,9 +1,18 @@
 "use client";
 
-import { current } from "@reduxjs/toolkit";
-import { ReactNode, createContext, useState, useEffect } from "react";
+import {
+  ReactNode,
+  createContext,
+  useState,
+  useEffect,
+  useMemo,
+  SetStateAction,
+  Dispatch,
+} from "react";
 
-export const ThemeContext = createContext(null);
+export const ThemeContext = createContext<
+  (string | Dispatch<SetStateAction<string>>)[]
+>([]);
 const ThemeWrapper = ({ children }: { children: ReactNode }) => {
   const [currentTheme, setCurrentTheme] = useState(() => {
     if (typeof window !== undefined) {
@@ -18,9 +27,14 @@ const ThemeWrapper = ({ children }: { children: ReactNode }) => {
     }
   }, [currentTheme]);
 
+  const themeValue = useMemo(
+    () => [currentTheme, setCurrentTheme],
+    [currentTheme]
+  );
+
   return (
     <div data-theme={currentTheme} className="global-wrapper">
-      <ThemeContext.Provider value={[currentTheme, setCurrentTheme]}>
+      <ThemeContext.Provider value={themeValue}>
         <div className="content-wrapper">{children}</div>
       </ThemeContext.Provider>
     </div>

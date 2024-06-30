@@ -6,11 +6,13 @@ import logoLight from "../../../public/logoLight.svg";
 import Image from "next/image";
 import Link from "next/link";
 import SearchAndSwitcher from "@/components/SearchAndSwitcher";
-import { useContext } from "react";
+import { useContext, memo } from "react";
 import { ThemeContext } from "@/app/ThemeWrapper";
 
 const Header = () => {
   const [theme] = useContext(ThemeContext);
+
+
 
   return (
     <header className={styles.header_wrapper}>
@@ -37,4 +39,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default memo(Header);

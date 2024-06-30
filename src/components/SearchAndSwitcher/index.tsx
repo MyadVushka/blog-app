@@ -3,47 +3,44 @@
 import styles from "./SearchAndSwitcher.module.css";
 import magnifier from "../../../public/mangifier.svg";
 import magnifierLight from "../../../public/mangifierLight.svg";
-import { useState } from "react";
 import Image from "next/image";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { ThemeContext } from "@/app/ThemeWrapper";
 import ThemeToggle from "../ThemeToggle";
+import Modal from "@/layouts/ModalScreen";
 
 const SearchAndSwitcher = () => {
   const [theme] = useContext(ThemeContext);
-  const [isMouseOver, setIsMouseOver] = useState<boolean>(false);
+  const [modalVisibility, setModalVisibility] = useState<boolean>(false);
 
-  const handleMouseOver = () => {
-    setIsMouseOver(true);
-  };
-
-  const handleMouseLeave = () => {
-    setIsMouseOver(false);
+  const handleChangeVisibility = () => {
+    setModalVisibility((prev) => !prev);
   };
 
   return (
-    <div className={styles.additional_wrapper}>
-      <button
-        onMouseOver={handleMouseOver}
-        onMouseLeave={handleMouseLeave}
-        className={styles.search_wrapper}
-      >
-        <Image
-          src={theme === "light" ? magnifier : magnifierLight}
-          alt="magnifier"
-          width={25}
-          height={25}
-        />
-        <div
-          className={`${styles.search_block} ${
-            isMouseOver ? styles.active : ""
-          }`}
+    <>
+      <Modal
+        setVisibility={handleChangeVisibility}
+        modalVisibility={modalVisibility}
+      />
+      <div className={styles.additional_wrapper}>
+        <button
+          onClick={handleChangeVisibility}
+          className={styles.search_wrapper}
         >
-          <span>Пошук</span>
-        </div>
-      </button>
-      <ThemeToggle />
-    </div>
+          <Image
+            src={theme === "light" ? magnifier : magnifierLight}
+            alt="magnifier"
+            width={25}
+            height={25}
+          />
+          <div className={`${styles.search_block}`}>
+            <span>Пошук</span>
+          </div>
+        </button>
+        <ThemeToggle />
+      </div>
+    </>
   );
 };
 

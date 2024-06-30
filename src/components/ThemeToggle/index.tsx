@@ -1,5 +1,5 @@
 import styles from "./ThemeToggle.module.css";
-import { useContext } from "react";
+import { useContext, memo } from "react";
 import { ThemeContext } from "@/app/ThemeWrapper";
 
 const ThemeToggle = () => {
@@ -22,4 +22,4 @@ const ThemeToggle = () => {
   );
 };
 
-export default ThemeToggle;
+export default memo(ThemeToggle);

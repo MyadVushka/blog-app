@@ -22,6 +22,6 @@
   transition: opacity 0.2s;
 }
 
-.search_block.active {
+.search_wrapper:hover .search_block {
   opacity: 1;
 }
