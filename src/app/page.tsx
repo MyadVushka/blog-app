@@ -2,8 +2,6 @@ import CardArticle from "@/components/CardArticle";
 import styles from "./page.module.css";
 import { CardStyle } from "@/types/general";
 import QuotesWrapper from "@/components/QuotesCarousel/QuotesWrapper";
-
-
 const fetchArticles = async () => {
   try {
     const res = await fetch("http://localhost:1337/api/articles?populate=*", {

@@ -5,7 +5,7 @@ import magnifier from "../../../public/mangifier.svg";
 import magnifierLight from "../../../public/mangifierLight.svg";
 import Image from "next/image";
 import { useContext, useState } from "react";
-import { ThemeContext } from "@/app/ThemeWrapper";
+import { ThemeContext } from "@/components/Contexts/ThemeWrapper";
 import ThemeToggle from "../ThemeToggle";
 import Modal from "@/layouts/ModalScreen";
 

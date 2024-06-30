@@ -1,6 +1,6 @@
 import styles from "./ThemeToggle.module.css";
 import { useContext, memo } from "react";
-import { ThemeContext } from "@/app/ThemeWrapper";
+import { ThemeContext } from "@/components/Contexts/ThemeWrapper";
 
 const ThemeToggle = () => {
   const [theme, setTheme] = useContext(ThemeContext);

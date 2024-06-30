@@ -7,12 +7,10 @@ import Image from "next/image";
 import Link from "next/link";
 import SearchAndSwitcher from "@/components/SearchAndSwitcher";
 import { useContext, memo } from "react";
-import { ThemeContext } from "@/app/ThemeWrapper";
+import { ThemeContext } from "@/components/Contexts/ThemeWrapper";
 
 const Header = () => {
   const [theme] = useContext(ThemeContext);
-
-
 
   return (
     <header className={styles.header_wrapper}>

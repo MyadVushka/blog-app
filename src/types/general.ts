@@ -21,3 +21,8 @@ export type QuoteStyle = {
     };
   };
 };
+
+export type ArticleContextStyle = {
+  article: CardStyle | null;
+  setArticle: (article: CardStyle) => void;
+};

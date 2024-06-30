@@ -1,4 +1,4 @@
-import { ThemeContext } from "@/app/ThemeWrapper";
+import { ThemeContext } from "@/components/Contexts/ThemeWrapper";
 import styles from "./Modal.module.css";
 import Image from "next/image";
 import { useContext, useRef } from "react";

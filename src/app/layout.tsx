@@ -3,7 +3,7 @@ import { Roboto, Merriweather } from "next/font/google";
 import "./globals.css";
 import Header from "@/layouts/Header";
 import ScrollTopButton from "@/components/ScrollTopButton";
-import ThemeWrapper from "./ThemeWrapper";
+import ThemeWrapper from "../components/Contexts/ThemeWrapper";
 
 const roboto = Roboto({ subsets: ["latin"], weight: ["400", "700"] });
 const merriweather = Merriweather({
