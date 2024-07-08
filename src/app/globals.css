@@ -7,6 +7,14 @@
   color: var(--text-primary-color);
 }
 
+.roboto-font {
+  font-family: "Roboto", sans-serif;
+}
+
+.merriweather-font {
+  font-family: "Merriweather", serif;
+}
+
 button,
 input {
   outline: none;
@@ -42,11 +50,9 @@ button {
 
 .global-wrapper {
   background-color: var(--background-primary-color);
-
 }
 
 .content-wrapper {
   width: 80%;
   margin: 0 auto;
 }
-

@@ -25,7 +25,7 @@ const CardArticle = (props: CardStyle) => {
   };
 
   return (
-    <div onClick={handleClick} className={styles.card_wrapper}>
+    <div onClick={handleClick} className={ `${styles.card_wrapper} roboto-font`}>
       <Image
         className={styles.image}
         src={props.imageUrl}

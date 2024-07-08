@@ -27,7 +27,7 @@ const Home = async () => {
     <div className={styles.homepage_wrapper}>
       <QuotesWrapper />
       <ul className={styles.card_list}>
-        {articles.data.length &&
+        {Boolean(articles.data.length) &&
           articles.data
             .map((article: CardStyle) => (
               <CardArticle

@@ -32,8 +32,20 @@
 }
 
 .content_text {
+    width: 1220px;
+    text-overflow: clip;
     text-align: justify;
     font-size: 20px;
     line-height: 1.6;
     word-spacing: 2px;
+}
+
+.sources {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.list_item {
+    list-style: circle;
 }

@@ -13,7 +13,7 @@ const Header = () => {
   const [theme] = useContext(ThemeContext);
 
   return (
-    <header className={styles.header_wrapper}>
+    <header className={`${styles.header_wrapper} roboto-font`}>
       <ul className={styles.nav_wrapper}>
         <Link href="/" className={styles.nav_element}>
           Артыкулы
